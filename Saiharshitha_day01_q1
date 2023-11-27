@@ -1,0 +1,8 @@
+intervals <- c(1, 5, 15, 20, 50, 80, 110)
+frequency <- c(200, 450, 300, 1500, 700, 44)
+cumulative_frequency <- cumsum(frequency)
+interval<- which(cumulative_frequency >= sum(frequency) / 2)
+approxmedian <- intervals[interval - 1] +
+  ((sum(frequency) / 2 - cumulative_frequency[interval - 1]) / frequency[interval]) *
+  (intervals[interval] - intervals[interval - 1])
+cat("Approximate Median:", approxmedian, "\n")
